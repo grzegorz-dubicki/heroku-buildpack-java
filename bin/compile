@@ -116,9 +116,13 @@ cat << EOF > $BUILD_DIR/.startup/java_with_jstack
   eval "\$javacmd &"
   pid=\$!
 
+  if [ -z "$JSTACK_INTERVAL"  ]; then
+    JSTACK_INTERVAL="360"
+  fi
+
   while :
   do
-    sleep 180
+    sleep $JSTACK_INTERVAL
     kill -3 \$pid
   done
 EOF
