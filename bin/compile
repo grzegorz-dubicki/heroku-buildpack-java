@@ -54,11 +54,13 @@ echo " done"
 cd $CACHE_DIR
 
 # install maven with base repository
-MAVEN_URL="http://apache.org/dist/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz"
+MAVEN3_VERSION="3.1.1"
+MAVEN_URL="http://apache.org/dist/maven/maven-3/$MAVEN3_VERSION/binaries/apache-maven-$MAVEN3_VERSION-bin.tar.gz"
 
 if [ ! -d .maven ]; then
-  echo -n "-----> Installing Maven 3.1.1..."
+  echo -n "-----> Installing Maven MAVEN3_VERSION..."
   curl --silent --max-time 60 --location $MAVEN_URL | tar xz
+  mv apache-maven-$MAVEN3_VERSION .maven
   chmod +x .maven/bin/mvn
   echo " done"
 fi
