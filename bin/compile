@@ -54,10 +54,10 @@ echo " done"
 cd $CACHE_DIR
 
 # install maven with base repository
-MAVEN_URL="http://heroku-jvm-langpack-java.s3.amazonaws.com/maven.central.tar.gz"
+MAVEN_URL="http://apache.org/dist/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz"
 
 if [ ! -d .maven ]; then
-  echo -n "-----> Installing Maven 3.0.5..."
+  echo -n "-----> Installing Maven 3.1.1..."
   curl --silent --max-time 60 --location $MAVEN_URL | tar xz
   chmod +x .maven/bin/mvn
   echo " done"
